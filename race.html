@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>応援レース（4選手）</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .track {
+            width: 80%;
+            margin: 20px auto;
+            border: 2px solid #444;
+            padding: 10px;
+            position: relative;
+            height: 60px;
+            background-color: #f0f0f0;
+        }
+        .runner {
+            width: 40px;
+            height: 40px;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/194/194931.png');
+            background-size: cover;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            transition: left 0.3s ease;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>あなたの応援で選手が進む！</h1>
+
+<div class="label">選手A</div>
+<div class="track" id="trackA">
+    <div class="runner" id="runnerA"></div>
+</div>
+<button onclick="moveRunner('A')">選手Aに投票</button>
+
+<div class="label">選手B</div>
+<div class="track" id="trackB">
+    <div class="runner" id="runnerB"></div>
+</div>
+<button onclick="moveRunner('B')">選手Bに投票</button>
+
+<div class="label">選手C</div>
+<div class="track" id="trackC">
+    <div class="runner" id="runnerC"></div>
+</div>
+<button onclick="moveRunner('C')">選手Cに投票</button>
+
+<div class="label">選手D</div>
+<div class="track" id="trackD">
+    <div class="runner" id="runnerD"></div>
+</div>
+<button onclick="moveRunner('D')">選手Dに投票</button>
+
+<script>
+    let positions = {A: 0, B: 0, C: 0, D: 0};
+
+    function moveRunner(player) {
+        if (positions[player] < 90) {
+            positions[player] += 10;
+            document.getElementById("runner" + player).style.left = positions[player] + "%";
+        }
+    }
+</script>
+
+</body>
+</html>
